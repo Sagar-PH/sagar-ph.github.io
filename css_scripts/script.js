@@ -33,7 +33,7 @@ window.onload = function () {
 
     Array.from(span_desig).forEach((s_elem, idx)=>{
         setTimeout(()=>{
-            s_elem.style.textShadow = '-0.15vw 0px rgb(31, 210, 216)'
+            s_elem.style.textShadow = '-0.25vw 0px rgb(199, 32, 82)'
         }, 50 * (idx+1))
     })
 }
@@ -139,3 +139,4 @@ Array.from(menu_click).forEach((element) => {
     })
 
 })
+
