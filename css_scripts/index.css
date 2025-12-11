@@ -1022,7 +1022,7 @@ section ul {
     letter-spacing: 0.05vw;
     height: auto;
     width: fit-content;
-    padding: 0vw 0.75vw;
+    padding: 0.7vw 0.75vw;
     margin-top: 1vw;
     font-size: 1vw;
     background-color: #282828;
@@ -1067,4 +1067,5 @@ footer {
         opacity: 1;
         transform: translateX(0%);
     }
+
 }
