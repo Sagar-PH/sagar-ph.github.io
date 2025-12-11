@@ -72,6 +72,7 @@ a {
     border-top: 1px solid rgb(44, 44, 44);
     height: 2.5vw;
     font-size: 1.2vw;
+    font-family: 'Gill Sans MT', sans-serif;
 }
 
 .nav {
@@ -952,6 +953,11 @@ section ul {
 
 
 /* Contact Form */
+
+#contact {
+    padding-bottom: 3.5vh;
+}
+
 .contact-form {
     width: 50%;
     margin: 2vw auto;
@@ -1012,6 +1018,24 @@ section ul {
     font-weight: bold;
 }
 
+.view_code {
+    letter-spacing: 0.05vw;
+    height: auto;
+    width: fit-content;
+    padding: 0vw 0.75vw;
+    margin-top: 1vw;
+    font-size: 1vw;
+    background-color: #282828;
+    border: 1px solid rgb(199, 32, 82);
+    color: white;
+    border-radius: 0.3vw;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.view_code:hover {
+    transform: scale(1.05);
+}
 
 .contact-form button:hover {
     background: rgb(230, 50, 100);

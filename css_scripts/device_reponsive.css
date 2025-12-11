@@ -382,6 +382,13 @@
         padding-left: 10px;
     }
 
+    .view_code {
+        letter-spacing: 0.05vw;
+        padding: 1.5vw 2vw;
+        font-size: 2vw;
+        border-radius: 0.35vw;
+        border: 0.5px solid rgb(199, 32, 82);
+    }
 
     /* .rs-skill {
         width: 75px;
