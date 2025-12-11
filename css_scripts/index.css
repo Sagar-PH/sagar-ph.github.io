@@ -686,6 +686,32 @@ section ul {
     height: 4px;
 }
 
+#description {
+    position: relative;
+}
+
+.in-view {
+    animation: reveal 0.5s ease-in-out forwards;
+}
+
+@keyframes reveal {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0%;
+    }
+}
+
+/* .mask_div {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background-color: white;
+} */
+
 .work_style_progress {
     position: absolute;
     top: 0;
@@ -705,7 +731,7 @@ section ul {
 .rev_work_style {
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     width: 2px;
     height: 100%;
     background: rgb(199, 32, 82);
@@ -1001,3 +1027,20 @@ footer {
 }
 
 
+.in-view {
+    opacity: 0;
+    transform: translateY(2vw);
+    animation: bounceRotate 0.8s ease-out forwards;
+}
+
+@keyframes bounceRotate {
+    from {
+        opacity: 0;
+        transform: translateY(2vw);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}

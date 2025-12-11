@@ -15,7 +15,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Portfolio</title>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    
+
     <script type="text/javascript">
         (function () {
             emailjs.init({
@@ -27,24 +27,29 @@
 
 <body>
     <div class="container">
-        <div class="nav">
-            <div class="logo">
-                <div class="span">
-                    <span>S</span>
+        <div>
+            <div class="nav">
+                <div class="nav_bar">
+                    <div class="logo">
+                        <div class="span">
+                            <span>S</span>
+                        </div>
+                        <p>Software Developer</p>
+                    </div>
+                    <div class="hamburger" id="hamburger">
+                        <i class="fa fa-bars"></i>
+                    </div>
                 </div>
-                <p>Software Developer</p>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <i class="fa fa-bars"></i>
-            </div>
-            <div class="navbar">
-                <div class="navele"><a href="#home" class="bar">Home</a><br></div>
-                <div class="navele"><a href="#about" class="bar">About</a><br></div>
-                <div class="navele"><a href="#resume" class="bar">Resume</a><br></div>
-                <div class="navele"><a href="#skills" class="bar">Skills</a><br></div>
-                <div class="navele"><a href="#contact" class="bar">Contact</a></div>
+                <div class="navbar">
+                    <div class="navele"><a href="#home" class="bar">Home</a><br></div>
+                    <div class="navele"><a href="#about" class="bar">About</a><br></div>
+                    <div class="navele"><a href="#resume" class="bar">Resume</a><br></div>
+                    <div class="navele"><a href="#skills" class="bar">Skills</a><br></div>
+                    <div class="navele"><a href="#contact" class="bar">Contact</a></div>
+                </div>
             </div>
         </div>
+
         <div class="section_div">
             <section id="home_section">
                 <div class="content" id="home">
@@ -86,13 +91,13 @@
                             <p>Learn About Me</p>
                         </div>
                         <span class="am_progress_bar"></span>
-                        <div id="aboutmyself">
+                        <div id="aboutmyself" class="screen-fade-in">
                             <div id="LearnAboutMe">
                                 <div>
                                     <img src="./Images/LearnAboutMe.png" alt="Learn About Me!">
                                 </div>
                             </div>
-                            <div id="aboutmy">
+                            <div id="aboutmy"  class="mobile-fade-in">
                                 <div id="aboutme1">
                                     <div id="desig">
                                         <p>Software Developer</p>
@@ -214,16 +219,16 @@
                     <h2>Resume</h2>
                     <div id="header_education">Education</div>
                     <span class="ed_progress_bar"></span>
-                    <div id="education">
+                    <div id="education" class="screen-fade-in">
                         <div id="education_photo">
                             <div>
                                 <img src="./Images/Education.png" alt="Coding Debugging Testing">
                             </div>
-                        </div>
-                        <div id="education_info">
                             <span class="rev_work_style">
                                 <span class="rev_work_style_progress"></span>
                             </span>
+                        </div>
+                        <div id="education_info" class="mobile-fade-in">
                             <div id="school">
                                 <p id="educ">High School, CISCE</p>
                                 <p id="year">March 2016</p>
@@ -256,13 +261,13 @@
                     </div>
                     <div id="header_work_experience">Work Experience</div>
                     <span class="we_progress_bar"></span>
-                    <div id="work_experience">
+                    <div id="work_experience" class="screen-fade-in">
                         <div id="work_experience_photo" class="mobile">
                             <div>
                                 <img src="./Images/CodeDebugTest.png" alt="Coding Debugging Testing">
                             </div>
                         </div>
-                        <div id="work_experience_info">
+                        <div id="work_experience_info" class="mobile-fade-in">
                             <span class="work_style">
                                 <span class="work_style_progress"></span>
                             </span>
@@ -331,16 +336,17 @@
                     <h2>Projects</h2>
                     <div>
                         <span class="po_progress_bar"></span>
-                        <div id="project_one">
+                        <div id="project_one" class="screen-fade-in">
                             <div id="project_o_photo">
                                 <div>
                                     <img src="./Images/Cloud-Project.png" alt="Coding Debugging Testing">
                                 </div>
-                            </div>
-                            <div id="project_o_info">
                                 <span class="rev_work_style">
                                     <span class="rev_work_style_progress"></span>
                                 </span>
+                            </div>
+                            <div id="project_o_info" class="mobile-fade-in">
+
                                 <div id="project_o">
                                     <p id="project_o_name">Data Security Using Efficient Cryptosystem Technique</p>
                                     <div id="project_o_skills">
@@ -369,13 +375,13 @@
                     </div>
                     <div>
                         <span class="pt_progress_bar"></span>
-                        <div id="project_two">
+                        <div id="project_two" class="screen-fade-in">
                             <div id="project_t_photo" class="mobile">
                                 <div>
                                     <img src="./Images/Chat-Project.png" alt="Coding Debugging Testing">
                                 </div>
                             </div>
-                            <div id="project_t_info">
+                            <div id="project_t_info" class="mobile-fade-in">
                                 <span class="work_style">
                                     <span class="work_style_progress"></span>
                                 </span>
@@ -402,6 +408,9 @@
                                             <span id="rev_des_arrow">➤</span>
                                         </div>
                                     </div>
+                                    <!-- <div>
+                                        <p>↑</p>
+                                    </div> -->
                                 </div>
                             </div>
                             <div id="project_t_photo" class="screen">
@@ -484,10 +493,9 @@
             </section>
 
 
-            <section>
-                <div class="contact" id="contact">
-                    <h2>Let's Connect</h2>
-
+            <section class="contact" id="contact">
+                <h2>Let's Connect</h2>
+                <div class="screen-fade-in mobile-fade-in">
                     <!-- Icon Cards -->
                     <div class="contact-cards">
                         <a href="mailto:sagargowda9128@gmail.com" class="card">
@@ -526,6 +534,3 @@
 <script src="./css_scripts/script.js"></script>
 
 </html>
-
-
-
