@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Portfolio</title>
+    <title>BuildWithSagar</title>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
     <script type="text/javascript">
@@ -28,6 +28,7 @@
 <body>
     <div class="container">
         <div>
+            <div></div>
             <div class="nav">
                 <div class="nav_bar">
                     <div class="logo">
@@ -244,10 +245,10 @@
                                 <p id="year">2018 - 2022</p>
                                 <p id="clgname">Don Bosco Institute of Technology</p>
                                 <div id="ed_skills">
-                                    <p id="ed_skill_1">Data Structures</p>
-                                    <p id="ed_skill_2">Database Management System</p>
-                                    <p id="ed_skill_3">Object-Oriented Programming</p>
-                                    <p id="ed_skill_4">Robotic Process Automation</p>
+                                    <p class="ed_skill">Data Structures</p>
+                                    <p class="ed_skill">Database Management System</p>
+                                    <p class="ed_skill">Object-Oriented Programming</p>
+                                    <p class="ed_skill">Robotic Process Automation</p>
                                 </div>
                                 <div id="description">
                                     <div><span id="des_arrow">➤</span>
@@ -276,10 +277,10 @@
                                 <p id="year" class="work_exp">2023 - Present</p>
                                 <p id="company">Inventys Technologies Pvt Ltd</p>
                                 <div id="wrk_skills">
-                                    <p id="wrk_skill_1">Python</p>
-                                    <p id="wrk_skill_2">c#</p>
-                                    <p id="wrk_skill_3">Chrome Extensions</p>
-                                    <p id="wrk_skill_4">Robotic Process Automation</p>
+                                    <p class="wrk_skill">Python</p>
+                                    <p class="wrk_skill">c#</p>
+                                    <p class="wrk_skill">Chrome Extensions</p>
+                                    <p class="wrk_skill">Robotic Process Automation</p>
                                 </div>
                                 <div id="description">
                                     <div>
@@ -350,10 +351,10 @@
                                 <div id="project_o">
                                     <p id="project_o_name">Data Security Using Efficient Cryptosystem Technique</p>
                                     <div id="project_o_skills">
-                                        <p id="proj_o_skill_1">Java</p>
-                                        <p id="proj_o_skill_2">JSP</p>
-                                        <p id="proj_o_skill_3">Cloud Computing</p>
-                                        <p id="proj_o_skill_4">ECC Algorithm</p>
+                                        <p class="proj_o_skill">Java</p>
+                                        <p class="proj_o_skill">JSP</p>
+                                        <p class="proj_o_skill">Cloud Computing</p>
+                                        <p class="proj_o_skill">ECC Algorithm</p>
                                     </div>
                                     <div id="description">
                                         <div><span id="des_arrow">➤</span>
@@ -388,14 +389,15 @@
                                 <div id="project_t">
                                     <p id="project_t_name"> Chat Web Application</p>
                                     <div id="project_t_skills">
-                                        <p id="proj_t_skill_1">Python</p>
-                                        <p id="proj_t_skill_2">Django</p>
-                                        <p id="proj_t_skill_3">SqlLite</p>
+                                        <p class="proj_t_skill">Python</p>
+                                        <p class="proj_t_skill">Django</p>
+                                        <p class="proj_t_skill">Docker</p>
+                                        <p class="proj_t_skill">SqlLite</p>
                                     </div>
                                     <div id="description">
                                         <div>
                                             <span id="des_arrow" class="m_device">➤</span>
-                                            Real-time chat application built using Django and
+                                            Real-time chat application built using Django + redis and
                                             WebSocket's. The application supports secure user authentication,
                                             private one-to-one messaging, and multi-user chat rooms.
                                             <span id="rev_des_arrow">➤</span>
@@ -433,15 +435,27 @@
                             <div>Python</div>
                         </div>
 
+                        <div id="skill_js" class="rs-skill">
+                            <img src="Skills/javascript-svg.svg" alt="Javascript">
+                            <div>Javascript</div>
+                        </div>
+
+                        <div id="skill_c" class="rs-skill">
+                            <img src="Skills/csharp-svg.svg" alt="C#">
+                            <div>C#</div>
+                        </div>
+
+                        <div id="skill_java" class="rs-skill">
+                            <img src="Skills/java-svg.svg" alt="Java">
+                            <div>Java</div>
+                        </div>
+
                         <div id="skill_dj" class="rs-skill">
                             <img src="Skills/django-svg.svg" alt="Django">
                             <div>Django</div>
                         </div>
 
-                        <div id="skill_js" class="rs-skill">
-                            <img src="Skills/javascript-svg.svg" alt="Javascript">
-                            <div>Javascript</div>
-                        </div>
+                        
 
                         <div id="skill_njs" class="rs-skill">
                             <img src="Skills/nodejs-svg.svg" alt="NodeJS">
@@ -458,6 +472,11 @@
                             <div>ElectronJS</div>
                         </div>
 
+                        <div id="skill_rds" class="rs-skill">
+                            <img src="Skills/docker-svg.svg" alt="docker">
+                            <div>Docker</div>
+                        </div>
+
                         <div id="skill_ejs" class="rs-skill">
                             <img src="Skills/express-svg.svg" alt="ExpressJS">
                             <div>ExpressJS</div>
@@ -468,24 +487,19 @@
                             <div>MySQL</div>
                         </div>
 
-                        <div id="skill_c" class="rs-skill">
-                            <img src="Skills/csharp-svg.svg" alt="C#">
-                            <div>C#</div>
-                        </div>
-
                         <div id="skill_psql" class="rs-skill">
                             <img src="Skills/postgresql-svg.svg" alt="PostgreSQL">
                             <div>PostgreSQL</div>
                         </div>
 
-                        <div id="skill_java" class="rs-skill">
-                            <img src="Skills/java-svg.svg" alt="Java">
-                            <div>Java</div>
-                        </div>
-
                         <div id="skill_rds" class="rs-skill">
                             <img src="Skills/redis-svg.svg" alt="Redis">
                             <div>Redis</div>
+                        </div>
+
+                        <div id="skill_rds" class="rs-skill">
+                            <img src="Skills/git-svg.svg" alt="git">
+                            <div>Git</div>
                         </div>
 
                     </div>

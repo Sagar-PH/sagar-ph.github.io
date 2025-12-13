@@ -571,21 +571,10 @@ section ul {
     margin-top: 0.1vw;
 }
 
-#ed_skill_1,
-#ed_skill_2,
-#ed_skill_3,
-#ed_skill_4,
-#wrk_skill_1,
-#wrk_skill_2,
-#wrk_skill_3,
-#wrk_skill_4,
-#proj_o_skill_1,
-#proj_o_skill_2,
-#proj_o_skill_3,
-#proj_o_skill_4,
-#proj_t_skill_1,
-#proj_t_skill_2,
-#proj_t_skill_3 {
+.ed_skill,
+.wrk_skill,
+.proj_o_skill,
+.proj_t_skill {
     background-color: #4b4a4a;
     width: fit-content;
     float: left;
@@ -595,13 +584,8 @@ section ul {
     font-size: smaller;
 }
 
-#wrk_skill_1,
-#wrk_skill_2,
-#wrk_skill_3,
-#wrk_skill_4,
-#proj_t_skill_1,
-#proj_t_skill_2,
-#proj_t_skill_3 {
+.wrk_skill,
+.proj_t_skill {
     float: right !important;
     margin: 0.1vw 0% 0.25vw 0.5vw;
 }
@@ -727,6 +711,14 @@ section ul {
         0 0 40px rgba(199, 32, 82, 0.5),
         0 0 80px rgba(199, 32, 82, 0.25);
     transition: height 0.05s linear;
+}
+
+#skills > div:nth-child(13) {
+    grid-column: 1 / span 2;
+}
+
+#skills > div:nth-child(14) {
+    grid-column: 3 / span 2;
 }
 
 .rev_work_style {
@@ -860,7 +852,7 @@ section ul {
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(4, 0.9fr);
-    row-gap: 35px;
+    row-gap: 4vw;
     padding: 30px;
     font-family: 'Gill Sans MT', sans-serif;
 
@@ -872,11 +864,11 @@ section ul {
 
 
 .rs-skill {
-    width: 60%;
-    height: 75%;
+    width: 11vw;
+    height: 8.5vw;
     background: #363636;
-    border-radius: 12px;
-    padding: 5% 2.5%;
+    border-radius: 1vw;
+    padding: 1vw .5vw;
     text-align: center;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
     transition: transform .2s, box-shadow .2s;
@@ -889,11 +881,11 @@ section ul {
 }
 
 .rs-skill img {
-    width: 60%;
-    height: 60%;
+    width: 50%;
+    height: 50%;
     object-fit: contain;
-    margin-bottom: 2.5%;
-    margin-top: 2.5%;
+    margin-bottom: 10%;
+    margin-top: 5%;
 }
 
 .rs-skill div {

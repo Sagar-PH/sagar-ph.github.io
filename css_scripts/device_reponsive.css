@@ -204,7 +204,11 @@
         margin-bottom: 15px;
     }
 
-    #education_info, #project_o_info, #work_experience_info, #project_t_info, #aboutmy {
+    #education_info,
+    #project_o_info,
+    #work_experience_info,
+    #project_t_info,
+    #aboutmy {
         padding-left: 5vw;
         padding-right: 1.5vw;
     }
@@ -240,31 +244,15 @@
         font-size: 3.5vw;
     }
 
-    #ed_skill_1,
-    #ed_skill_2,
-    #ed_skill_3,
-    #ed_skill_4,
-    #wrk_skill_1,
-    #wrk_skill_2,
-    #wrk_skill_3,
-    #wrk_skill_4,
-    #proj_o_skill_1,
-    #proj_o_skill_2,
-    #proj_o_skill_3,
-    #proj_o_skill_4,
-    #proj_t_skill_1,
-    #proj_t_skill_2,
-    #proj_t_skill_3 {
+    .ed_skill,
+    .wrk_skill,
+    .proj_o_skill,
+    .proj_t_skill {
         margin: 1vw 2vw 1vw 0px;
     }
 
-    #wrk_skill_1,
-    #wrk_skill_2,
-    #wrk_skill_3,
-    #wrk_skill_4,
-    #proj_t_skill_1,
-    #proj_t_skill_2,
-    #proj_t_skill_3 {
+    .wrk_skill,
+    .proj_t_skill {
         float: left !important;
         margin: 1vw 2vw 1vw 0px;
     }
@@ -390,18 +378,14 @@
         border: 0.5px solid rgb(199, 32, 82);
     }
 
-    /* .rs-skill {
-        width: 75px;
-        height: 50px;
-        background: #363636;
-        border-radius: 6px;
-        text-align: center;
-        box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-        transition: transform .2s, box-shadow .2s;
-        cursor: pointer;
-        margin-bottom: 10px;
+    .rs-skill {
+        width: 60%;
+        height: 75%;
+        border-radius: 2vw;
+        padding: 5px 0px;
     }
     
+    /*
     .rs-skill:hover {
         transform: translateY(-6px);
         box-shadow: 0 8px 20px rgba(0,0,0,0.15);
@@ -617,6 +601,11 @@
 
     .skills-grid {
         grid-template-columns: repeat(3, 0.9fr);
+    }
+
+    #skills > div:nth-last-child(2),
+    #skills > div:last-child {
+        grid-column: span 1;
     }
 
     /* .rs-skill {
