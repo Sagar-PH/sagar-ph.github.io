@@ -713,13 +713,13 @@ section ul {
     transition: height 0.05s linear;
 }
 
-#skills > div:nth-child(13) {
+/* #skills > div:nth-child(13) {
     grid-column: 1 / span 2;
 }
 
 #skills > div:nth-child(14) {
     grid-column: 3 / span 2;
-}
+} */
 
 .rev_work_style {
     position: absolute;
