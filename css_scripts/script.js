@@ -111,23 +111,22 @@
         });
     }
 
-    function formatDateTime() {
+    function formatIndianDateTime() {
         const now = new Date();
-
-        const months = [
-            "January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"
-        ];
-
-        const month = months[now.getMonth()];
-        const day = now.getDate();
-        const year = now.getFullYear();
-
-        const pad = (n) => String(n).padStart(2, '0');
-        const hours = pad(now.getHours());
-        const minutes = pad(now.getMinutes());
-
-        return `${month} ${day}, ${year} - ${hours}:${minutes}`;
+    
+        const formatter = new Intl.DateTimeFormat("en-US", {
+            timeZone: "Asia/Kolkata",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false
+        });
+    
+        const parts = formatter.formatToParts(now);
+        const get = (type) => parts.find(p => p.type === type)?.value;
+        return `${get("month")} ${get("day")}, ${get("year")} - ${get("hour")}:${get("minute")}`;
     }
 
     const debouncedScroll = debounce(() => {
@@ -135,14 +134,27 @@
         updateNeon();
     }, 10);
 
+    function send_date_time() {
+        const data = { "Date": formatIndianDateTime() }
+        try {
+            emailjs.send("service_wi7bgtp", "template_m13tu0l", data);
+        } catch (err) { }
+    }
+    
     setTimeout(() => {
         if (visitor_check) {
-            const data = { "Date": formatDateTime() }
+            const url = 'https://custom-server-i6ll.onrender.com/logger';
+    
             try {
-                emailjs.send("service_wi7bgtp", "template_m13tu0l", data);
-            } catch (err) {
-                console.error("EmailJS Error:", err);
-            }
+                fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                })
+                .then(res => res.json())
+                .then(res => {
+                    if (res['status'] === 'failed') send_date_time()
+                });
+            } catch (err) { send_date_time() }
         }
     }, 10000)
 
@@ -232,3 +244,5 @@
 
 
 })();
+
+
