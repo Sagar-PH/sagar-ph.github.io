@@ -750,7 +750,6 @@ section ul {
 #work_experience_info,
 #project_t_info {
     position: relative;
-    margin-top: 5%;
     text-align: right;
     font-family: 'Gill Sans MT', sans-serif;
     letter-spacing: 1px;
@@ -853,7 +852,7 @@ section ul {
     display: grid;
     grid-template-columns: repeat(4, 0.9fr);
     row-gap: 4vw;
-    padding: 30px;
+    padding: 4vw 4vw 1vw 4vw;
     font-family: 'Gill Sans MT', sans-serif;
 
     justify-items: center;
