@@ -163,43 +163,41 @@
                 .then(res => {
                     if (res['status'] === 'failed') send_message(date_data)
                 });
-            } catch (err) sent_result = send_message(date_data)
+            } catch (err) send_message(date_data)
         }
     }, 10000)
 
     // ---------- Contact Form (EmailJS) ----------
-    if (contactForm) {
-        contactForm.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            
-            let form_reset = true;
-            const url = server_url + '/message';
+    contactForm?.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        
+        let form_reset = true;
+        const url = server_url + '/message';
 
-            const data = {
-                user: contactForm.name.value,
-                email: contactForm.email.value,
-                message: contactForm.message.value,
-            };
+        const data = {
+            user: contactForm.name.value,
+            email: contactForm.email.value,
+            message: contactForm.message.value,
+        };
 
-            try {
-                fetch(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                })
-                .then(res => res.json())
-                .then(res => {
-                    if (res['status'] === 'failed') {
-                        form_reset = send_message(data);
-                    }
-                });
-            } catch (err) { 
-                form_reset = send_message(data) 
-            }
+        try {
+            fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(res => res.json())
+            .then(res => {
+                if (res['status'] === 'failed') {
+                    form_reset = send_message(data);
+                }
+            });
+        } catch (err) { 
+            form_reset = send_message(data) 
+        }
 
-            if (form_reset) contactForm.reset();
-        });
-    }
+        if (form_reset) contactForm.reset();
+    });
 
     // ---------- Smooth Section Navigation ----------
     navLinks.forEach((link) =>
