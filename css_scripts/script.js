@@ -28,6 +28,9 @@
     const textJoinElem = get("#text_join");
     const p3 = get(".p3");
 
+    // const server_url = 'https://custom-server-i6ll.onrender.com'
+    const server_url = 'https://f30jz3i0mi.execute-api.ap-south-2.amazonaws.com/PortfolioLogger-Stage'
+
     let visitor_check = true;
 
     const progressDefs = [
@@ -133,13 +136,6 @@
         fadeScrollHandler();
         updateNeon();
     }, 10);
-
-    function send_date_time() {
-        const data = { "Date": formatIndianDateTime() }
-        try {
-            emailjs.send("service_wi7bgtp", "template_m13tu0l", data);
-        } catch (err) { console.log("Log Send Fail") }
-    }
     
     function send_message(data) {
         try {
@@ -155,8 +151,8 @@
     
     setTimeout(() => {
         if (visitor_check) {
-            // const url = 'https://custom-server-i6ll.onrender.com/logger';
-            const url = 'https://f30jz3i0mi.execute-api.ap-south-2.amazonaws.com/PortfolioLogger-Stage/logger';
+            const url = server_url + '/logger';
+            const date_data = { "Date": formatIndianDateTime() }
     
             try {
                 fetch(url, {
@@ -165,9 +161,9 @@
                 })
                 .then(res => res.json())
                 .then(res => {
-                    if (res['status'] === 'failed') send_date_time()
+                    if (res['status'] === 'failed') send_message(date_data)
                 });
-            } catch (err) { send_date_time() }
+            } catch (err) sent_result = send_message(date_data)
         }
     }, 10000)
 
@@ -177,7 +173,7 @@
             e.preventDefault();
             
             let form_reset = true;
-            const url = 'https://f30jz3i0mi.execute-api.ap-south-2.amazonaws.com/PortfolioLogger-Stage/message';
+            const url = server_url + '/message';
 
             const data = {
                 user: contactForm.name.value,
@@ -191,7 +187,6 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 })
-                    
                 .then(res => res.json())
                 .then(res => {
                     if (res['status'] === 'failed') {
@@ -210,6 +205,7 @@
     navLinks.forEach((link) =>
         link.addEventListener("click", (e) => {
             e.preventDefault();
+            
             const targetId = link.getAttribute("href").substring(1);
             const target = document.getElementById(targetId);
             if (!target) return;
