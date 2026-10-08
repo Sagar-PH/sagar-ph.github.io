@@ -163,7 +163,9 @@
                 .then(res => {
                     if (res['status'] === 'failed') send_message(date_data)
                 });
-            } catch (err) send_message(date_data)
+            } catch (err) {
+                send_message(date_data)
+            }
         }
     }, 10000)
 
