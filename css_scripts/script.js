@@ -1,7 +1,7 @@
 (() => {
     "use strict";
 
-    // ------------- Helpers -------------
+    // -------------- Helpers --------------
     const debounce = (fn, delay = 20) => {
         let t;
         return (...args) => {
