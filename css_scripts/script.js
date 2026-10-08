@@ -143,7 +143,8 @@
     
     setTimeout(() => {
         if (visitor_check) {
-            const url = 'https://custom-server-i6ll.onrender.com/logger';
+            // const url = 'https://custom-server-i6ll.onrender.com/logger';
+            const url = 'https://f30jz3i0mi.execute-api.ap-south-2.amazonaws.com/PortfolioLogger-Stage/logger';
     
             try {
                 fetch(url, {
