@@ -137,9 +137,9 @@
         updateNeon();
     }, 10);
     
-    function send_message(data) {
+    async function send_message(data) {
         try {
-            emailjs.send("service_wi7bgtp", "template_m13tu0l", data);
+            await emailjs.send("service_wi7bgtp", "template_m13tu0l", data);
             return true
         } catch (err) {
             console.error("EmailJS Error:", err);
@@ -147,62 +147,76 @@
         }
     }
     
-    setTimeout(() => {
+    setTimeout(async () => {
         if (visitor_check) {
-            const url = server_url + '/logger';
-            const date_data = { "Date": formatIndianDateTime() }
-    
+            const url = `${server_url}/logger`;
+            const date_data = { "Date": formatIndianDateTime() };
+
             try {
-                fetch(url, {
+                const response = await fetch(url, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' }
-                })
-                .then(res => res.json())
-                .then(res => {
-                    if (res['status'] === 'failed') send_message(date_data)
                 });
+
+                if (!response.ok) {
+                    throw new Error('Logger network response was not ok');
+                }
+
+                const res = await response.json();
+
+                if (res.status === 'failed') {
+                    await send_message(date_data);
+                }
             } catch (err) {
-                send_message(date_data)
+                console.error("Primary logger failed, attempting fallback:", err);
+                await send_message(date_data);
             }
         }
-    }, 10000)
+    }, 10000);
+
 
     // ---------- Contact Form (EmailJS) ----------
-    contactForm?.addEventListener("submit", async (e) => {
-        e.preventDefault();
+    contactForm?.addEventListener("submit", async (e) => { 
+        e.preventDefault(); 
+
+        const url = `${server_url}/message`; 
+        const data = { 
+            user: contactForm.name.value, 
+            email: contactForm.email.value, 
+            message: contactForm.message.value, 
+        }; 
+
+        let isMessageSent = true;
         
-        let form_reset = true;
-        const url = server_url + '/message';
-
-        const data = {
-            user: contactForm.name.value,
-            email: contactForm.email.value,
-            message: contactForm.message.value,
-        };
-
-        try {
-            fetch(url, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            })
-            .then(res => res.json())
-            .then(res => {
-                if (res['status'] === 'failed') {
-                    form_reset = send_message(data);
-                }
+        try { 
+            const response = await fetch(url, { 
+                method: 'POST', 
+                headers: { 'Content-Type': 'application/json' }, 
+                body: JSON.stringify(data) 
             });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const res = await response.json(); 
+
+            if (res.status === 'failed') {
+                isMessageSent = await send_message(data); 
+            }
         } catch (err) { 
-            form_reset = send_message(data) 
+            console.error("Primary send failed, attempting fallback:", err);
+            isMessageSent = await send_message(data); 
         }
 
-        if (form_reset) {
+        if (isMessageSent) {
             alert("Message sent successfully!");
             contactForm.reset();
         } else {
             alert("Failed to send message.");
         }
     });
+
 
     // ---------- Smooth Section Navigation ----------
     navLinks.forEach((link) =>
@@ -269,5 +283,3 @@
 
 
 })();
-
-
