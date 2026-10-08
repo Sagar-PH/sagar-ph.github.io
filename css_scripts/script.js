@@ -138,7 +138,19 @@
         const data = { "Date": formatIndianDateTime() }
         try {
             emailjs.send("service_wi7bgtp", "template_m13tu0l", data);
-        } catch (err) { }
+        } catch (err) { console.log("Log Send Fail") }
+    }
+    
+    function send_message(data) {
+        try {
+            emailjs.send("service_wi7bgtp", "template_m13tu0l", data);
+            alert("Message sent successfully!");
+            return true
+        } catch (err) {
+            console.error("EmailJS Error:", err);
+            alert("Failed to send message.");
+            return false
+        }
     }
     
     setTimeout(() => {
@@ -163,6 +175,9 @@
     if (contactForm) {
         contactForm.addEventListener("submit", async (e) => {
             e.preventDefault();
+            
+            let form_reset = true;
+            const url = 'https://f30jz3i0mi.execute-api.ap-south-2.amazonaws.com/PortfolioLogger-Stage/message';
 
             const data = {
                 user: contactForm.name.value,
@@ -171,13 +186,23 @@
             };
 
             try {
-                await emailjs.send("service_wi7bgtp", "template_27wcqcn", data);
-                alert("Message sent successfully!");
-                contactForm.reset();
-            } catch (err) {
-                console.error("EmailJS Error:", err);
-                alert("Failed to send message.");
+                fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                })
+                    
+                .then(res => res.json())
+                .then(res => {
+                    if (res['status'] === 'failed') {
+                        form_reset = send_message(data);
+                    }
+                });
+            } catch (err) { 
+                form_reset = send_message(data) 
             }
+
+            if (form_reset) contactForm.reset();
         });
     }
 
