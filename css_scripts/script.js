@@ -140,11 +140,9 @@
     function send_message(data) {
         try {
             emailjs.send("service_wi7bgtp", "template_m13tu0l", data);
-            alert("Message sent successfully!");
             return true
         } catch (err) {
             console.error("EmailJS Error:", err);
-            alert("Failed to send message.");
             return false
         }
     }
@@ -198,7 +196,12 @@
             form_reset = send_message(data) 
         }
 
-        if (form_reset) contactForm.reset();
+        if (form_reset) {
+            alert("Message sent successfully!");
+            contactForm.reset();
+        } else {
+            alert("Failed to send message.");
+        }
     });
 
     // ---------- Smooth Section Navigation ----------
